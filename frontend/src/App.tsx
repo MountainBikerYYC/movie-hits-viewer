@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
-import Movies from "./interfaces/db_interfaces";
+import Header from "./components/header/Header";
 
 const App = () => {
   const [movies, setMovies] = useState();
@@ -13,7 +13,7 @@ const App = () => {
     try {
       const response = await api.get("/api/v1/movies");
 
-    //   console.log(response.data);
+      //   console.log(response.data);
       setMovies(response.data);
     } catch (err) {
       console.log(err);
@@ -26,9 +26,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={movies &&<Home movies={movies} />}></Route>
+          <Route path="/" element={movies && <Home movies={movies} />}></Route>
         </Route>
       </Routes>
     </div>

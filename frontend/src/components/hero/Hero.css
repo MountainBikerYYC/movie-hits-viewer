@@ -4,6 +4,9 @@
 }
 .movie-poster {
   height: 300px;
+  border: 1.5px solid gold;
+  border-radius: 15px;
+  overflow: hidden;
 }
 .movie-poster > img {
   height: 100%;
@@ -33,4 +36,10 @@
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.movie-title {
+  color: white;
+  display: flex;
+  align-items: center;
 }
