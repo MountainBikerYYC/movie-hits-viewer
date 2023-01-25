@@ -1,16 +1,6 @@
 import React from "react";
 import Hero from "../hero/Hero";
-
-interface Movies {
-  imdbId: string;
-  title: string;
-  releaseDate: string;
-  trailerLink: string;
-  genres: string[];
-  poster: string;
-  backdrops: string[];
-  reviewIds: string[];
-}
+import Movies from "../../interfaces/db_interfaces";
 
 const Home: React.FunctionComponent<{ movies: Movies }> = (props) => {
   const { movies } = props;

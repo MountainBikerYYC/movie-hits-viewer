@@ -4,17 +4,7 @@ import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
-
-interface Movies {
-  imdbId: string;
-  title: string;
-  releaseDate: string;
-  trailerLink: string;
-  genres: string[];
-  poster: string;
-  backdrops: string[];
-  reviewIds: string[];
-}
+import Movies from "./interfaces/db_interfaces";
 
 const App = () => {
   const [movies, setMovies] = useState();
