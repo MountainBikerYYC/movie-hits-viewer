@@ -5,6 +5,17 @@ import Layout from "./components/Layout";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 
+interface Movies {
+  imdbId: string;
+  title: string;
+  releaseDate: string;
+  trailerLink: string;
+  genres: string[];
+  poster: string;
+  backdrops: string[];
+  reviewIds: string[];
+}
+
 const App = () => {
   const [movies, setMovies] = useState();
 
@@ -12,7 +23,7 @@ const App = () => {
     try {
       const response = await api.get("/api/v1/movies");
 
-      console.log(response.data);
+    //   console.log(response.data);
       setMovies(response.data);
     } catch (err) {
       console.log(err);
@@ -27,7 +38,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home movies={movies} />}></Route>
+          <Route path="/" element={movies &&<Home movies={movies} />}></Route>
         </Route>
       </Routes>
     </div>
