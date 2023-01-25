@@ -3,16 +3,9 @@ import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import React from "react";
 import Movies from "../../interfaces/db_interfaces";
-// interface Movies {
-//     imdbId: string;
-//     title: string;
-//     releaseDate: string;
-//     trailerLink: string;
-//     genres: string[];
-//     poster: string;
-//     backdrops: string[];
-//     reviewIds: string[];
-//   }
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Hero: React.FunctionComponent<{ movies: Movies }> = (props) => {
   const { movies } = props;
@@ -34,6 +27,20 @@ const Hero: React.FunctionComponent<{ movies: Movies }> = (props) => {
                       </div>
                       <div className="movie-title">
                         <h4>{movie.title}</h4>
+                      </div>
+                      <div className="movie-buttons-container">
+                        <Link
+                          to={`./Trailer/${movie.trailerLink.substring(
+                            movie.trailerLink.length - 11
+                          )}`}
+                        >
+                          <div className="play-button-icon-container">
+                            <FontAwesomeIcon
+                              className="play-button-icon"
+                              icon={faCirclePlay}
+                            />
+                          </div>
+                        </Link>
                       </div>
                     </div>
                   </div>
