@@ -18,12 +18,15 @@ app.use("/api/v1/movies", require("./routes/movieRoutes"));
 app.use("/api/v1/reviews", require("./routes/reviewRoutes"));
 app.use(errorHandler);
 
+
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../frontend/build"));
-  app.get("*", (req, res) => {
+  app.use(express.static(path.join(__dirname,"../frontend/build")));
+  //app.use(express.static("../frontend/build"));
+  app.get("/", (req, res) => {
     console.log(__dirname);
-    console.log("PORT number is ", PORT);
-    req.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+    // console.log("PORT number is ", PORT);
+    res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
   });
 }
 
