@@ -12,11 +12,16 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-// mongoose.connect("mongodb://localhost/movie-api-db", { useNewUrlParser: true });
-
 app.use("/api/v1/movies", require("./routes/movieRoutes"));
 
 app.use("/api/v1/reviews", require("./routes/reviewRoutes"));
 app.use(errorHandler);
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("../frontend/build"));
+    app.get("*", (req, res) => {
+      req.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+    });
+  }
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
