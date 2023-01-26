@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../hero/Hero";
+import Background from '../background/Backgound'
 import Movies from "../../interfaces/db_interfaces";
 
 const Home: React.FunctionComponent<{ movies: Movies }> = (props) => {
@@ -7,7 +7,7 @@ const Home: React.FunctionComponent<{ movies: Movies }> = (props) => {
   //   console.log("passed in props ", props);
   return (
     <div>
-      <Hero movies={movies} />
+      <Background movies={movies} />
     </div>
   );
 };

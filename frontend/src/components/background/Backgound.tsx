@@ -1,18 +1,23 @@
-import "./Hero.css";
+import "./Background.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import React from "react";
 import Movies from "../../interfaces/db_interfaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
-const Hero: React.FunctionComponent<{ movies: Movies }> = (props) => {
+const Background: React.FunctionComponent<{ movies: Movies }> = (props) => {
+  const navigate = useNavigate();
   const { movies } = props;
+  const reviews = (movieId: string) => {
+    navigate(`/reviews/${movieId}`);
+  };
   return (
     <div>
       {Array.isArray(movies) ? (
-        <Carousel>
+        <Carousel navButtonsAlwaysVisible>
           {movies.map((movie: Movies) => {
             return (
               <Paper>
@@ -41,6 +46,14 @@ const Hero: React.FunctionComponent<{ movies: Movies }> = (props) => {
                             />
                           </div>
                         </Link>
+                        <div className="movie-review-button-container">
+                          <Button
+                            variant="info"
+                            onClick={() => reviews(movie.imdbId)}
+                          >
+                            More Info
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -54,4 +67,4 @@ const Hero: React.FunctionComponent<{ movies: Movies }> = (props) => {
   );
 };
 
-export default Hero;
+export default Background;
