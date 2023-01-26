@@ -18,10 +18,12 @@ app.use("/api/v1/reviews", require("./routes/reviewRoutes"));
 app.use(errorHandler);
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("../frontend/build"));
-    app.get("*", (req, res) => {
-      req.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
-    });
-  }
+  app.use(express.static("../frontend/build"));
+  app.get("*", (req, res) => {
+    console.log(__dirname);
+    console.log("PORT number is ", PORT);
+    req.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+  });
+}
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
