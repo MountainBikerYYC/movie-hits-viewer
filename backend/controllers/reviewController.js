@@ -12,9 +12,7 @@ const setReview = asyncHandler(async (req, res) => {
   const movieToReview = await Movie.findOne({ imdbId: imdbId });
 
   const newReview = await Review.create({ body: review });
-  //   newReview.body = review;
-//   console.log(newReview);
-
+  
   movieToReview.reviewIds.push(newReview);
   await movieToReview.save();
   if (!movieToReview) {

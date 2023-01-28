@@ -9,11 +9,4 @@ router.get("/", getAllMovies);
 
 router.get("/:id", getSingleMovie);
 
-// router.get("/", (req, res) => {
-//   res.status(200).json({ message: "Set Review" });
-// });
-
-// router.get("/", (req, res) =>  {
-//   res.status(200).json({ message: "Get movies" });
-// });
 module.exports = router;

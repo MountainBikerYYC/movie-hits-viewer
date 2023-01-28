@@ -6,7 +6,6 @@ const MovieInfo = ({ movie }) => {
   const [number, setNumber] = React.useState(0);
   function generateRandomNumber(min, max) {
     setNumber(Math.floor(Math.random() * (max - min + 1) + min));
-    // return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   // add side effect to component
