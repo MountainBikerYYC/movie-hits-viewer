@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import api from "../../api/axiosConfig";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-// import ReviewForm from "./ReviewForm";
 import MovieInfo from "../information/MovieInfo";
 
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
@@ -48,30 +47,11 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
             <>
               <Row>
                 <Col>
-                  {/* <ReviewForm
-                    handleSubmit={addReview}
-                    revText={revText}
-                    labelText="Submit a Review"
-                  /> */}
                   {movie ? <MovieInfo movie={movie} /> : ""}
                 </Col>
               </Row>
             </>
           }
-          {/* {reviews?.map((r) => {
-            return (
-              <>
-                <Row>
-                  <Col>{r.body}</Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <hr />
-                  </Col>
-                </Row>
-              </>
-            );
-          })} */}
         </Col>
       </Row>
     </Container>
